@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const UserSchema = new mongoose.Schema({
     firstName: {
@@ -14,7 +15,11 @@ const UserSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, "Email is required"],
-        minlength: [2, "Email must be at least 2 characters in length"]
+        minlength: [2, "Email must be at least 2 characters in length"],
+        validate: {
+            validator: val => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
+            message: "Please enter a valid email!"
+        }          
     },
     password: {
         type: String,
@@ -24,6 +29,41 @@ const UserSchema = new mongoose.Schema({
 
 }, { timestamps: true }
 );
+
+//Virtual field
+//Store information from our request, but it will not be saved to the collection
+UserSchema.virtual("confirmPassword")
+    .get(() => this._confirmPassword)
+    .set((value) => this._confirmPassword = value);
+
+//middleware 
+UserSchema.pre("validate", function(next) {
+    console.log('inside pre-validate');
+
+    if(this.password !== this.confirmPassword){
+        this.invalidate("confirmPassword", "Password must match confirm password!");
+    }
+    //run the next step in the proccess
+    next();
+    
+});
+
+
+UserSchema.pre("save", function(next){
+    console.log("inside pre-save");
+
+    //encrypt the password Before it is saved to the Database
+    bcrypt.hash(this.password, 10)
+    .then((hashedPassword) => {
+        //update the password in this instance to use the hashed returned version
+        this.password = hashedPassword;
+        next();
+    })
+    .catch((err) => {
+        console.log("error while hashing the password");
+    })
+})
+
 
 const User = mongoose.model('user', UserSchema);
 
