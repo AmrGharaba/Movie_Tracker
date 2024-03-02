@@ -5,6 +5,8 @@ import RegisterForm from './components/RegisterPages/RegisterForm';
 import LoginForm from './components/RegisterPages/LoginForm';
 import Main from './views/Main';
 import axios from 'axios';
+import ContactUs from './components/AboutusPages/ContactUs';
+import AboutUs from './components/AboutusPages/AboutUs';
 
 function App() {
   // useEffect(() => {
@@ -27,6 +29,8 @@ function App() {
         <Route path='/' element={<RegisterForm />} />
         <Route path='/login' element={<LoginForm />} />
         <Route path='/home/*' element={<Main />} />
+        <Route path='/contactus' element={<ContactUs />} />
+        <Route path='/aboutus' element={<AboutUs />} />
       </Routes>
     </>
   );
