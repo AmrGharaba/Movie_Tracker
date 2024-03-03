@@ -1,0 +1,12 @@
+/* CustomCarousel.css */
+
+/* Removes margin between slides */
+.slick-slide {
+    margin: 0px;
+}
+
+/* Optional: If you want to ensure there's no padding or margin within the card itself */
+.movieCard {
+    padding: 0px;
+    margin: 0px;
+}

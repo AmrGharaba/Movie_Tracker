@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="footer">
-            <section>
-                <footer className="text-center text-white" style={{ backgroundColor: '#343a40' }}>
+        <footer className="footer" style={{ position: 'relative' }}>
+            <div>
+                <footer className="text-center text-white" style={{ backgroundColor: '#131313' }}>
                     <div className="container p-4 pb-0">
                         <section>
                             <p className="d-flex justify-content-center align-items-center">
@@ -48,12 +48,14 @@ const Footer = () => {
 
                                 <ul className="list-unstyled mb-0">
                                     <li>
-                                        <a href="#!" className="text-white">About Us</a>
+                                        <Link className="text-white" to={'/aboutus'}>About Us</Link>
                                     </li>
                                     <li>
-                                        <a href="#!" className="text-white">Contact</a>
+                                        <Link className="text-white" to={'/home/contactus'}>Contact</Link>
+
                                     </li>
                                     <li>
+
                                         <a href="#!" className="text-white">Support</a>
                                     </li>
                                 </ul>
@@ -64,6 +66,7 @@ const Footer = () => {
 
                                 <ul className="list-unstyled mb-0">
                                     <li>
+
                                         <a href="#!" className="text-white">Privacy Policy</a>
                                     </li>
                                     <li>
@@ -81,7 +84,7 @@ const Footer = () => {
                         © 2024 Movie Tracker. All Rights Reserved.
                     </div>
                 </footer>
-            </section>
+            </div>
         </footer>
     );
 };
