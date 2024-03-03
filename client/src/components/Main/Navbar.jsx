@@ -7,21 +7,14 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            // Set state based on scroll position
             setIsScrolled(window.scrollY > 0);
         };
-
-        // Add scroll listener when component mounts
         window.addEventListener('scroll', handleScroll);
-
-        // Remove scroll listener when component unmounts
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-
     return (
-        <AppBar position={isScrolled ? 'fixed' : 'static'} sx={{ width: '100%', margin: 0, padding: 0, backgroundColor: '#131313', transition: 'top 0.3s' }}>
+        <AppBar position={isScrolled ? 'fixed' : 'static'} sx={{ width: '100%', margin: 0, padding: 0, backgroundColor: `${isScrolled ? 'rgba(19, 19, 19, 0.7)' : '#131313'}`, backdropFilter: 'blur(10px)', transition: 'top 0.3s' }}>
             <Toolbar sx={{ justifyContent: 'space-between', display: 'flex' }}>
-                {/* Left Section for Title and Menu Icon */}
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <IconButton
                         size="large"
@@ -29,7 +22,6 @@ const Navbar = () => {
                         color="inherit"
                         aria-label="menu"
                     >
-                        {/* MenuIcon here */}
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ color: "red", fontSize: "30px" }}>
                         Movie Tracker
@@ -39,13 +31,10 @@ const Navbar = () => {
                     <Button color="inherit" component={Link} to="/watchlist">Watchlist</Button>
                     <Button color="inherit" component={Link} to="/home/addMovie">Add Movie</Button>
                 </Box>
-
-                {/* Right Section for Sign Out Button */}
                 <Box sx={{ display: 'flex', justifyContent: 'end' }}>
                     <Button sx={{
                         '&:hover': {
                             backgroundColor: 'transparent',
-                            color: 'red', // Change color to red on hover
                         },
                     }} color="inherit" component={Link} to="/">Sign Out</Button>
                 </Box>

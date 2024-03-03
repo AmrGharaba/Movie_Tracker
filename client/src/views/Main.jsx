@@ -41,7 +41,7 @@ function Main() {
             <Routes>
                 <Route element={<MovieForm />} path='/addMovie' />
                 <Route element={<>
-                    <SearchBar />
+                    {/* <SearchBar /> */}
                     <MoviesCarousel />
                 </>} path='/' />
                 <Route element={<ContactUs />} path='/contactus' />
