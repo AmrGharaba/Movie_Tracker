@@ -7,6 +7,7 @@ import Main from './views/Main';
 import axios from 'axios';
 import ContactUs from './components/AboutusPages/ContactUs';
 import AboutUs from './components/AboutusPages/AboutUs';
+import MoviesCarousel from './components/Movie/MoviesCarousel';
 
 function App() {
   // useEffect(() => {
@@ -27,10 +28,11 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<RegisterForm />} />
+        {/* <Route element={<MoviesCarousel />} path='/home' /> */}
         <Route path='/login' element={<LoginForm />} />
         <Route path='/home/*' element={<Main />} />
-        <Route path='/contactus' element={<ContactUs />} />
-        <Route path='/aboutus' element={<AboutUs />} />
+
+
       </Routes>
     </>
   );
