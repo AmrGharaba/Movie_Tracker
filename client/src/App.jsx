@@ -29,6 +29,7 @@ function App() {
       <Routes>
         <Route path='/' element={<RegisterForm />} />
         {/* <Route element={<MoviesCarousel />} path='/home' /> */}
+        <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/login' element={<LoginForm />} />
         <Route path='/home/*' element={<Main />} />
 
