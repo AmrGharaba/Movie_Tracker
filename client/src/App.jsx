@@ -8,6 +8,7 @@ import axios from 'axios';
 import ContactUs from './components/AboutusPages/ContactUs';
 import AboutUs from './components/AboutusPages/AboutUs';
 import MoviesCarousel from './components/Movie/MoviesCarousel';
+import MovieDetail from './components/MovieDetail/MovieDetail';
 
 function App() {
   // useEffect(() => {
@@ -32,8 +33,7 @@ function App() {
         <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/login' element={<LoginForm />} />
         <Route path='/home/*' element={<Main />} />
-
-
+        <Route path='/detail' element={<MovieDetail/>} />
       </Routes>
     </>
   );
