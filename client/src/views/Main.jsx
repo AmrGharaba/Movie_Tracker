@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AllMovies from '../components/Movie/AllMovies';
+import MainWatchList from './MainWatchList';
 
 
 
@@ -52,6 +53,9 @@ function Main() {
 
 
 
+
+
+
     return (
         <>
 
@@ -69,6 +73,7 @@ function Main() {
                         <AllMovies movies={filteredMovies} loaded={loaded} />
                     </>
                 } />
+                <Route path="/watchlist" element={<MainWatchList />} />
                 <Route element={<ContactUs />} path='/contactus' />
 
 
