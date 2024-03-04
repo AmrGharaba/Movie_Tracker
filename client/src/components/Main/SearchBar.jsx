@@ -11,6 +11,7 @@ const SearchBar = ({ onSearch }) => {
         onSearch(value);
     };
 
+
     return (
         <Container maxWidth="false"
             sx={{
@@ -37,14 +38,15 @@ const SearchBar = ({ onSearch }) => {
                 }}
             >
                 <TextField
+                    value={term}
+                    onChange={handleSearchChange}
 
                     variant="outlined"
                     placeholder="Search for movies..."
                     fullWidth
                     InputProps={{
                         endAdornment: (
-                            <IconButton value={term}
-                                onChange={handleSearchChange} aria-label="search"
+                            <IconButton aria-label="search"
                                 sx={{
                                     color: 'darkgrey',
                                     '&:hover': {
