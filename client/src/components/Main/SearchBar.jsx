@@ -3,10 +3,12 @@ import { Box, TextField, IconButton, Container } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = ({ onSearch }) => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [term, setTerm] = useState('');
 
-    const handleSearch = () => {
-        onSearch(searchTerm);
+    const handleSearchChange = (e) => {
+        const { value } = e.target;
+        setTerm(value);
+        onSearch(value);
     };
 
     return (
@@ -35,14 +37,14 @@ const SearchBar = ({ onSearch }) => {
                 }}
             >
                 <TextField
+
                     variant="outlined"
                     placeholder="Search for movies..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
                     fullWidth
                     InputProps={{
                         endAdornment: (
-                            <IconButton onClick={handleSearch} aria-label="search"
+                            <IconButton value={term}
+                                onChange={handleSearchChange} aria-label="search"
                                 sx={{
                                     color: 'darkgrey',
                                     '&:hover': {
