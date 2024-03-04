@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import HeroSlider from '../components/Main/HeroSlider';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import AllMovies from '../components/Movie/AllMovies';
 
 
 import "slick-carousel/slick/slick.css";
@@ -41,9 +42,10 @@ function Main() {
             <Routes>
                 <Route element={<MovieForm />} path='/addMovie' />
                 <Route element={<>
-                    {/* <SearchBar /> */}
+
                     <MoviesCarousel />
                 </>} path='/' />
+                <Route element={<> <SearchBar /><AllMovies movies={movies} loaded={loaded} /> </>} path='/allMovies' />
                 <Route element={<ContactUs />} path='/contactus' />
 
 

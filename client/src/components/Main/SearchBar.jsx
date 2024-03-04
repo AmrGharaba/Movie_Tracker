@@ -10,14 +10,14 @@ const SearchBar = ({ onSearch }) => {
     };
 
     return (
-        <Container maxWidth="false" // Disables maxWidth to allow the container to stretch
+        <Container maxWidth="false"
             sx={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: "100%", // Ensures the Container takes the full width
-                padding: 0, // Removes padding to ensure full width utilization
-                margin: 0, // Removes margin to ensure full width utilization
+                width: "100%",
+                padding: 0,
+                margin: 0,
                 backgroundColor: 'black'
 
 
@@ -25,12 +25,12 @@ const SearchBar = ({ onSearch }) => {
         >
             <Box
                 sx={{
-                    width: '80%', // Ensures the Box takes the full width of its Container
+                    width: '80%',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    paddingTop: 5, // Maintains padding within the Box for aesthetics
-                    boxSizing: 'border-box', // Ensures padding does not affect the overall width
+                    paddingTop: 5,
+                    boxSizing: 'border-box',
 
                 }}
             >
@@ -39,7 +39,7 @@ const SearchBar = ({ onSearch }) => {
                     placeholder="Search for movies..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    fullWidth // TextField takes full width of its parent Box
+                    fullWidth
                     InputProps={{
                         endAdornment: (
                             <IconButton onClick={handleSearch} aria-label="search"

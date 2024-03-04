@@ -27,7 +27,7 @@ const Navbar = () => {
                         Movie Tracker
                     </Typography>
                     <Button color="inherit" sx={{ marginLeft: "50px" }} component={Link} to="/home">Home</Button>
-                    <Button color="inherit" component={Link} to="/discover">Discover</Button>
+                    <Button color="inherit" component={Link} to="/home/allMovies">Discover</Button>
                     <Button color="inherit" component={Link} to="/watchlist">Watchlist</Button>
                     <Button color="inherit" component={Link} to="/home/addMovie">Add Movie</Button>
                 </Box>
