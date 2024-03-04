@@ -54,7 +54,7 @@ const MovieForm = () => {
             <Typography variant="h6" sx={{ mb: 3 }}>
                 Add New Movie
             </Typography>
-            {/* Text fields for title, description, etc. */}
+
             {['title', 'description', 'poster', 'trailer'].map((field, index) => (
                 <TextField
                     key={index}
