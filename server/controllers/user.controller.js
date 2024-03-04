@@ -25,21 +25,21 @@ module.exports.findOneSingleUser = (req, res) => {
 module.exports.createNewUser = (req, res) => {
     User.create(req.body)
         .then(newlyCreatedUser => {
-        //     res.cookie("usertoken",//name of the cookie 
-        //     jwt.sign({
-        //         //payload is the data i want to save
-        //         user_id: newlyCreatedUser._id,
-        //         email: newlyCreatedUser.email,
-        //         name: newlyCreatedUser.firstName                                    }, 
-        //     process.env.JWT_SECRET),//used to sign/hash the data in the cookie
-        //     {
-        //         //configuration settings for this cookie
-        //         httpOnly:true,
-        //         expires: new Date(Date.now() + 900000)
-        //     }
+            res.cookie("usertoken",//name of the cookie 
+            jwt.sign({
+                //payload is the data i want to save
+                user_id: newlyCreatedUser._id,
+                email: newlyCreatedUser.email,
+                name: newlyCreatedUser.firstName                                    }, 
+            process.env.JWT_SECRET),//used to sign/hash the data in the cookie
+            {
+                //configuration settings for this cookie
+                httpOnly:true,
+                expires: new Date(Date.now() + 900000)
+            }
             
-        // )
-        res.json({
+        )
+        .json({
             message:"succesfly Registered!",
             newUser: newlyCreatedUser
         })

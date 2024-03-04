@@ -25,9 +25,38 @@ const RegisterForm = (props) => {
         password,
         confirmPassword,
     }
+
+    const updateUser = {
+        firstName,
+        lastName,
+        email,
+        password
+    }
+
+    // const roleHandle = () => {
+    //     if(email.includes("admin")){
+    //         axios.patch("http://localhost:8000/api/admin/updateRole", updateUser)
+    //             .then(res => console.log(res))
+    //             .catch(err => console.log(err))
+    //     }
+    // }
+
     const registerHandler = () => {
         axios.post("http://localhost:8000/api/users/register", user)
-            .then(res => navigate('/login'))
+            .then(res => {
+                if(email.includes("admin")){
+                    axios.patch("http://localhost:8000/api/admin/updateRole", updateUser)
+                        .then(res => {
+                            console.log(res);
+                            localStorage.setItem("admin", true);
+                        })
+                        .catch(err => console.log(err))
+                }
+                localStorage.setItem('jwt', '124q3cdfgdraw3q244444w555cfgudtse57w34s5eu8cfise58');
+                axios.get(`http://localhost:8000/api/users/loggeduser?email=${email}`)
+                    .then(res => { localStorage.setItem("userid", res.data.user._id) });
+                navigate('/home');
+            })
             .catch(err => console.log(err))
     }
     return (
