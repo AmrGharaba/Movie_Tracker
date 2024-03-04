@@ -46,7 +46,7 @@ const MovieCard = ({ movie }) => {
                     backgroundColor: 'rgba(0, 0, 0, 0)',
                     transition: 'background-color 0.3s',
                     backgroundColor: isHovered ? 'rgba(0,0,0,0.7)' : 'rgba(0,0,0,0)',
-                    padding: '16px',
+                    padding: '0',
                     opacity: isHovered ? 1 : 0,
                 }}
             >

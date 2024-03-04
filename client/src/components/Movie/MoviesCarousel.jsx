@@ -42,7 +42,7 @@ const MoviesCarousel = ({ }) => {
     >
       <Slider {...settings}>
         {loaded && movies.map((movie) => (
-          <div key={movie.id}><MovieCard movie={movie} /></div>
+          <div key={movie._id}><MovieCard movie={movie} /></div>
         ))}
       </Slider>
 
