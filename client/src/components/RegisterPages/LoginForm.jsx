@@ -18,6 +18,8 @@ const LoginForm = (props) => {
     //         .catch(err => console.log(err))
     // }, [email])
 
+
+
     const user = {
         email,
         password
@@ -28,7 +30,12 @@ const LoginForm = (props) => {
             .then(res => {
                 localStorage.setItem('jwt', '124q3cdfgdraw3q244444w555cfgudtse57w34s5eu8cfise58');
                 axios.get(`http://localhost:8000/api/users/loggeduser?email=${email}`)
-                    .then(res => { localStorage.setItem("userid", res.data.user._id) });
+                    .then(res => { 
+                        localStorage.setItem("userid", res.data.user._id);
+                        if(res.data.user.role == "admin"){
+                            localStorage.setItem("admin", true);
+                        } 
+                    });
                 localStorage.setItem('loggeduser', email);
                 setIsLogged(true);
                 navigate("/home");
@@ -43,9 +50,9 @@ const LoginForm = (props) => {
                 localStorage.removeItem('jwt');
                 localStorage.removeItem("userid");
                 localStorage.removeItem('loggeduser');
+                localStorage.removeItem("admin");
                 setIsLogged(false);
                 navigate("/");
-                //window.location.reload()
             })
             .catch(err => console.log(err))
     }
@@ -93,12 +100,9 @@ const LoginForm = (props) => {
                 />
                 <p style={{ color: "red", fontSize: "14px" }}>{passwordError}</p>
                 {
-                    isLogged ?
-                        <Button onClick={LogoutHandle} fullWidth variant="contained" color="error">Logout</Button>
-                        : (emailError || passwordError ?
-                            <Button fullWidth disabled variant="contained" color="error">Login</Button>
-                            : <Button onClick={LoginHandle} fullWidth variant="contained" color="success">Login</Button>
-                        )
+                    emailError || passwordError ?
+                        <Button fullWidth disabled variant="contained" color="error">Login</Button>
+                        : <Button onClick={LoginHandle} fullWidth variant="contained" color="success">Login</Button>
                 }
 
                 <p className='mt-3'>Not a user? No problem you can <Link to={'/'}>register here</Link>.</p>

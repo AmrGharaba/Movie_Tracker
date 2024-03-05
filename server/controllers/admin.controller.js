@@ -21,6 +21,16 @@ module.exports.findAllMovies = (req, res) => {
         });
 }
 
+module.exports.findOneSingleMovie = (req, res) => {
+    Movie.findOne({ _id: req.params.id })
+        .then(oneSingleMovie => {
+            res.json({ Movie: oneSingleMovie })
+        })
+        .catch((err) => {
+            res.json(err)
+        });
+}
+
 module.exports.createNewMovie = (req, res) => {
     Movie.create(req.body)
         .then(newlyCreatedMovie => {
@@ -46,6 +56,19 @@ module.exports.deleteAnExistingMovie = (req, res) => {
     Movie.deleteOne({ _id: req.params.id })
         .then(result => {
             res.json({ result: result })
+        })
+        .catch((err) => {
+            res.json(err)
+        });
+}
+
+module.exports.UpdatingTheRole = (req, res) => {
+    const { email } = req.body;
+    User.findOneAndUpdate({ email: email },
+        { $set: { role: 'admin' } },
+        { new: true })
+        .then(result => {
+            res.json({msg: "the role was updated successfully"})
         })
         .catch((err) => {
             res.json(err)
