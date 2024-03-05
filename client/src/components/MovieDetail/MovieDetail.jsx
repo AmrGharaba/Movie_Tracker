@@ -6,6 +6,7 @@ import { Box, Typography, Button, Stack, Chip, IconButton } from '@mui/material'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import YouTube from 'react-youtube';
 
 const MovieDetail = () => {
   const [loaded, setLoaded] = useState(false);
@@ -142,8 +143,13 @@ const MovieDetail = () => {
             </Typography>
           </Stack>
 
+
         </Box>
+
       </div>
+      {/* <Stack sx={{ mt: 4, backgroundColor:"black" ,margin:"0 auto",display:"flex",justifyContent:"center",p:10, alignContent:"center" }} direction="row" spacing={2} alignItems="center">
+        <YouTube videoId={"otNh9bTjXWg"} />
+      </Stack> */}
     </>
   );
 };
