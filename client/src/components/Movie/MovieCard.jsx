@@ -48,7 +48,7 @@ const MovieCard = ({ movie }) => {
             to={!mouseMoved && `/home/${movie._id}`}>
             <Card
                 sx={{
-                    width: 325,
+                    width: 305,
                     backgroundColor: '#424242',
                     color: '#fff',
                     borderRadius: "0",

@@ -28,7 +28,8 @@ const SearchBar = ({ onSearch }) => {
         >
             <Box
                 sx={{
-                    width: '80%',
+                    width: '46%',
+                    minWidth: "300px",
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
