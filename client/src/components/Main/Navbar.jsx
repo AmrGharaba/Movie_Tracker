@@ -12,7 +12,10 @@ const Navbar = () => {
 
     const handleAuthAction = () => {
         if (userId) {
+            localStorage.removeItem('jwt');
             localStorage.removeItem("userid");
+            localStorage.removeItem('loggeduser');
+            localStorage.removeItem("admin");
             navigate('/');
         } else {
             navigate('/login');
