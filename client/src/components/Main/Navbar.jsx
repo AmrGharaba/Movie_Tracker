@@ -4,6 +4,7 @@ import { AppBar, Toolbar, Box, Typography, Button, IconButton } from '@mui/mater
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const admin = localStorage.getItem("admin");
 
     useEffect(() => {
         const handleScroll = () => {
@@ -29,7 +30,10 @@ const Navbar = () => {
                     <Button color="inherit" sx={{ marginLeft: "50px" }} component={Link} to="/home">Home</Button>
                     <Button color="inherit" component={Link} to="/home/allMovies">Discover</Button>
                     <Button color="inherit" component={Link} to="/home/watchlist">Watchlist</Button>
-                    <Button color="inherit" component={Link} to="/home/addMovie">Add Movie</Button>
+                    {
+                        admin ? <Button color="inherit" component={Link} to="/admin/">Admin Dashboard</Button> : ""
+                    }
+
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'end' }}>
                     <Button sx={{
