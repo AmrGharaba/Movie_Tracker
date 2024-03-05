@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom'
-//import { useDispatch } from "react-redux";
-//import { logout } from "../../../redux/actions/authAction";
 import "./Sidebar.css";
 import React, { useState } from "react";
-// import CreateMovie from '../MoviesForm/CreateMovie';
-// import MovieList from '../MoviesList/MovieList';
-// import UserList from '../UsersList/UserList';
 import axios from 'axios';
 
 

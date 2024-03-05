@@ -33,13 +33,6 @@ const RegisterForm = (props) => {
         password
     }
 
-    // const roleHandle = () => {
-    //     if(email.includes("admin")){
-    //         axios.patch("http://localhost:8000/api/admin/updateRole", updateUser)
-    //             .then(res => console.log(res))
-    //             .catch(err => console.log(err))
-    //     }
-    // }
 
     const registerHandler = () => {
         axios.post("http://localhost:8000/api/users/register", user)
