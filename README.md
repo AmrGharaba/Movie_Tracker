@@ -36,5 +36,9 @@ platform's offerings through the dedicated dashboard.
 - **Shahrazad Masalmah**
 - **Amr Gharaba**
 - **Raed Tubileh**
-     
+
+## Some Of The Pages On The Website:
+
+### Home Page:
+![home](https://github.com/AmrGharaba/Movie_Tracker/assets/146379471/914ca6ae-0e60-4e59-a95d-c838aa2206ee)
    
