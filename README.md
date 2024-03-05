@@ -19,18 +19,18 @@ platform's offerings through the dedicated dashboard.
    - Allow users to create accounts and personalize profiles.
    - Maintain a history of watched movies and user preferences.
 2. Watched List:
-  - Enable users to create and manage a list of movies they have watched.
+   - Enable users to create and manage a list of movies they have watched.
 3. Movie Database:
-  - Curate an extensive movie database with details such as titles, genres, release dates.
-  - Include high-quality movie posters and trailers for a visually appealing experience.
+   - Curate an extensive movie database with details such as titles, genres, release dates.
+   - Include high-quality movie posters and trailers for a visually appealing experience.
 4. Search and Recommendation Engine:
-  - Implement a robust search feature for users to find specific movies.
+   - Implement a robust search feature for users to find specific movies.
 5. Likes and Favorites:
-  - Enable users to express their liking for movies by adding them to a favorites list.
-  - Provide a mechanism for users to like or thumbs-up specific movies.
+   - Enable users to express their liking for movies by adding them to a favorites list.
+   - Provide a mechanism for users to like or thumbs-up specific movies.
 6. Dashboard for Admin:
-  - Admin interface to manage the movie database and user accounts.
-  - Tools for adding new movies, updating information, and moderating user-generated content.
+   - Admin interface to manage the movie database and user accounts.
+   - Tools for adding new movies, updating information, and moderating user-generated content.
 
 ## Team
 - **Shahrazad Masalmah**
