@@ -5,22 +5,24 @@ import axios from 'axios';
 
 
 const Sidebar = () => {
-    //const dispatch = useDispatch();
-    const [adminMenu, setAdminMenu] = useState(1);
+  //const dispatch = useDispatch();
+  const [adminMenu, setAdminMenu] = useState(1);
+  const [loaded, setLoaded] = useState(true);
 
-    const LogoutHandle = () => {
-      axios.get('http://localhost:8000/api/users/logout')
-          .then(res => {
-              localStorage.removeItem('jwt');
-              localStorage.removeItem("userid");
-              localStorage.removeItem('loggeduser');
-              localStorage.removeItem("admin");
-          })
-          .catch(err => console.log(err))
+  const LogoutHandle = () => {
+    axios.get('http://localhost:8000/api/users/logout')
+      .then(res => {
+        localStorage.removeItem('jwt');
+        localStorage.removeItem("userid");
+        localStorage.removeItem('loggeduser');
+        localStorage.removeItem("admin");
+
+      })
+      .catch(err => console.log(err))
   }
 
 
-  return (
+  return loaded && (
     <>
 
       <div className="sidebar_responsive" id="sidebar">
