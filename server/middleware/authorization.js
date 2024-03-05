@@ -11,7 +11,7 @@ const authorization = async (req,res,next) => {
             return res.status(400).json({ msg: "You are not authorized" });
         }
 
-        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         if (!decoded) {
           return res.status(400).json({ msg: "You are not authorized" });
