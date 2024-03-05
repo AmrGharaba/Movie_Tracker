@@ -20,7 +20,7 @@ const UserList = props => {
     return(
         <div className="mt-5">
             <h2 className="text-center mb-3">Users List</h2>
-            <table className="table">
+            <table className="table table-dark">
                 <thead className="text-center">
                     <tr>
                         <th>User</th>
@@ -31,14 +31,15 @@ const UserList = props => {
                     {
                         users.map((user, index) => {
                             return  <tr key={index}>
-                                        <td style={{ color: "#9349f5" }}>{user.firstName} {user.lastName}</td>
-                                        <td style={{ color: "#9349f5" }}>{user.email}</td>
+                                        <td>{user.firstName} {user.lastName}</td>
+                                        <td>{user.email}</td>
                                     </tr>
                         })
                     }
                 </tbody>
             </table>
         </div>
+       
     );
 }
 

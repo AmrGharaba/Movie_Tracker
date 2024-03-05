@@ -25,7 +25,7 @@ const UpdateMovie = props => {
         axios.put('http://localhost:8000/api/admin/movie/' + id, movieData)
             .then(response => {
                 console.log(response.data);
-                navigate("/admin");
+                navigate("/admin/movies");
             })
             .catch(error => {
                 console.error('There was an error!', error);
