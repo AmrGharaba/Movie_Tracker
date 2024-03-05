@@ -5,7 +5,6 @@ import axios from 'axios';
 
 function MainWatchList() {
     const userId = localStorage.getItem("userid");
-    const [movies, setMovies] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [watchlistMovies, setWatchlistMovies] = useState([]);
 

@@ -1,10 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Box, Typography, Button, IconButton } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const admin = localStorage.getItem("admin");
+    const userId = localStorage.getItem("userid");
+    const navigate = useNavigate();
+
+
+    const handleAuthAction = () => {
+        if (userId) {
+            localStorage.removeItem("userid");
+            navigate('/');
+        } else {
+            navigate('/login');
+        }
+    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -29,18 +42,25 @@ const Navbar = () => {
                     </Typography>
                     <Button color="inherit" sx={{ marginLeft: "50px" }} component={Link} to="/home">Home</Button>
                     <Button color="inherit" component={Link} to="/home/allMovies">Discover</Button>
-                    <Button color="inherit" component={Link} to="/home/watchlist">Watchlist</Button>
+                    <Button color="inherit" component={Link} to={userId && "/home/watchlist"}>Watchlist</Button>
                     {
-                        admin ? <Button color="inherit" component={Link} to="/admin/">Admin Dashboard</Button> : ""
+                        admin ? <Button color="inherit" component={Link} to="/admin">Admin Dashboard</Button> : ""
                     }
 
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'end' }}>
-                    <Button sx={{
-                        '&:hover': {
-                            backgroundColor: 'transparent',
-                        },
-                    }} color="inherit" component={Link} to="/">Sign Out</Button>
+                    <Button
+                        onClick={handleAuthAction}
+                        sx={{
+                            color: "white",
+                            '&:hover': {
+                                color: "red",
+                                backgroundColor: 'transparent',
+                            },
+                        }}
+                    >
+                        {userId ? 'Sign Out' : 'Login'}
+                    </Button>
                 </Box>
             </Toolbar>
         </AppBar>

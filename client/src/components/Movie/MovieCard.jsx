@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardMedia, Box, Typography, IconButton } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import axios from 'axios';
@@ -10,13 +10,14 @@ const MovieCard = ({ movie }) => {
     const [isHovered, setIsHovered] = useState(false);
     const movieId = movie._id;
     const [isWatchlisted, setIsWachlisted] = useState(movie.usersWatchListed.includes(userId))
+    const [mouseMoved, setMouseMoved] = useState(true);
 
-
-
+    useEffect(() => {
+        setIsWachlisted(movie.usersWatchListed.includes(userId));
+    }, [])
     const handleAddToWatchlist = (event) => {
         event.preventDefault();
         event.stopPropagation();
-
         if (isWatchlisted) {
             axios.patch(`http://localhost:8000/api/movies/${movie._id}/removeFromWatchList`, { userId })
                 .then(response => {
@@ -38,9 +39,13 @@ const MovieCard = ({ movie }) => {
         }
     };
 
+
     return (
 
-        <Link to={`/home/${movie._id}`}>
+        <Link
+            onMouseMove={() => setMouseMoved(true)}
+            onMouseDown={() => setMouseMoved(false)}
+            to={!mouseMoved && `/home/${movie._id}`}>
             <Card
                 sx={{
                     width: 325,
@@ -88,10 +93,11 @@ const MovieCard = ({ movie }) => {
                         overflow: "hidden"
                     }}
                 >
-                    {isHovered && (
+                    {userId && isHovered && (
                         <IconButton
                             onClick={(event) => handleAddToWatchlist(event)}
                             sx={{
+                                zIndex: 3,
                                 position: 'absolute',
                                 top: 8,
                                 right: 8,
