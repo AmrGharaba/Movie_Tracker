@@ -10,7 +10,7 @@ const AllMovies = (props) => {
         setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + 4);
     };
 
-    // Adjust the overall padding of the Grid container
+
     return (
         <>
             <Grid container spacing={5} sx={{ pb: 2, backgroundColor: "black", width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
@@ -27,10 +27,10 @@ const AllMovies = (props) => {
                         onClick={loadMore}
                         sx={{
                             width: "100%",
-                            color: "red", // Text color
-                            backgroundColor: "black", // Button color
+                            color: "red", 
+                            backgroundColor: "black",
                             '&:hover': {
-                                backgroundColor: "rgba(255, 0, 0, 0.1)", // Button hover color
+                                backgroundColor: "rgba(255, 0, 0, 0.1)", 
                             },
                         }}
                     >
