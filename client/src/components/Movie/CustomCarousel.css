@@ -3,6 +3,7 @@
 /* Removes margin between slides */
 .slick-slide {
     margin: 0px;
+    width:1220px;
 }
 
 /* Optional: If you want to ensure there's no padding or margin within the card itself */

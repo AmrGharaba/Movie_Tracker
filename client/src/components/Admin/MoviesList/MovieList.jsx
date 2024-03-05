@@ -4,12 +4,14 @@ import axios from "axios";
 
 const MovieList = props => {
     const [movies, setMovies] = useState([]);
+    const [loaded, setLoaded] = useState(false)
     const navigate = useNavigate();
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/admin/movies')
             .then(response => {
                 setMovies(response.data.Movies);
+                setLoaded(true)
             })
             .catch(error => {
                 console.error('There was an error!', error);
@@ -26,7 +28,7 @@ const MovieList = props => {
     }
 
 
-    return(
+    return loaded && (
         <div className="mt-5">
             <h2 className="text-center mb-3">Movies List</h2>
             <table className="table table-dark">
@@ -39,13 +41,13 @@ const MovieList = props => {
                 <tbody className="text-center">
                     {
                         movies.map((movie, index) => {
-                            return  <tr key={index}>
-                                        <td>{movie.title}</td>
-                                        <td>
-                                            <button className="btn" onClick={ () => navigate("/admin/movie/" + movie._id + "/edit") }>Edit</button>
-                                            <button className="btn ms-3" onClick={ () => removeFromDom(movie._id) }>Delete</button>
-                                        </td>
-                                    </tr>
+                            return <tr key={index}>
+                                <td>{movie.title}</td>
+                                <td>
+                                    <button className="btn" onClick={() => navigate("/admin/movie/" + movie._id + "/edit")}>Edit</button>
+                                    <button className="btn ms-3" onClick={() => removeFromDom(movie._id)}>Delete</button>
+                                </td>
+                            </tr>
                         })
                     }
                 </tbody>

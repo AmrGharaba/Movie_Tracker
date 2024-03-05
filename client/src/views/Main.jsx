@@ -33,7 +33,7 @@ function Main() {
 
     return (
         <>
-            <Navbar/>
+            <Navbar />
             <Routes>
                 <Route element={<MovieForm />} path='/addMovie' />
                 <Route element={<>
@@ -43,8 +43,13 @@ function Main() {
                 <Route path="/watchlist" element={<MainWatchList />} />
                 <Route element={<ContactUs />} path='/contactus' />
                 <Route element={<MovieDetail />} path='/:id' />
+
+
+
+
+
             </Routes>
-            <Footer/>
+            <Footer />
         </>
     )
 }

@@ -38,7 +38,7 @@ const MoviesCarousel = ({ }) => {
     ]
   };
   return (
-    <Box style={{ paddingRight: "10%", paddingLeft: "10%", backgroundColor: 'black', paddingTop: "50px", paddingBottom: "50px" }}
+    <Box style={{ paddingRight: "10%", paddingLeft: "10%", backgroundColor: 'black', paddingTop: "50px", paddingBottom: "50px", width: "100%" }}
     >
       <Slider {...settings}>
         {loaded && movies.map((movie) => (
