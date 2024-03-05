@@ -28,13 +28,13 @@ const Sidebar = () => {
       <div className="sidebar_responsive" id="sidebar">
         <div className="sidebar__title">
           <div className="sidebar__img">
-            <h1>Movie Tracker</h1>
+            {/* <h1>Movie Tracker</h1> */}
           </div>
           <i className="fa fa-times" id="sidebarIcon" aria-hidden="true"></i>
         </div>
 
         <div className="sidebar__menu">
-          <h2>ADMIN CONTROL</h2>
+          <h2>Dashboard</h2>
           <div
             className={`sidebar__link ${adminMenu === 1 && "active_menu_link"}`}
             onClick={() => setAdminMenu(1)}
@@ -44,24 +44,38 @@ const Sidebar = () => {
           </div>
           <div
             className={`sidebar__link ${adminMenu === 2 && "active_menu_link"}`}
-            onClick={() => setAdminMenu(1)}
+            onClick={() => setAdminMenu(2)}
           >
             <i className="fa fa-th"></i>
             <Link to="/admin/movies">Movies Management</Link>
           </div>
           <div
             className={`sidebar__link ${adminMenu === 3 && "active_menu_link"}`}
-            onClick={() => setAdminMenu(2)}
+            onClick={() => setAdminMenu(3)}
           >
             <i className="fa fa-lock" aria-hidden="true"></i>
             <Link to="/admin/createMovie">Add Movie</Link>
           </div>
           <div
             className={`sidebar__link ${adminMenu === 4 && "active_menu_link"}`}
-            onClick={() => setAdminMenu(3)}
+            onClick={() => setAdminMenu(4)}
           >
             <i className="fa fa-ban"></i>
             <Link to="/admin/users">Users Management</Link>
+          </div>
+          <div
+            className={`sidebar__link ${adminMenu === 5 && "active_menu_link"}`}
+            onClick={() => setAdminMenu(5)}
+          >
+            <i className="fa fa-ban"></i>
+            <Link to="/admin/chart/1">Most Liked Chart</Link>
+          </div>
+          <div
+            className={`sidebar__link ${adminMenu === 6 && "active_menu_link"}`}
+            onClick={() => setAdminMenu(6)}
+          >
+            <i className="fa fa-ban"></i>
+            <Link to="/admin/chart/2">Most Watched Chart</Link>
           </div>
           <div className="sidebar__logout">
             <i className="fa fa-power-off"></i>

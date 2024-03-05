@@ -108,8 +108,8 @@ const MovieForm = (props) => {
             <Button
                 type="submit"
                 fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                variant=""
+                sx={{ mt: 3, mb: 2, backgroundColor: "#212529", color: "white" }}
             >
                 Add Movie
             </Button>

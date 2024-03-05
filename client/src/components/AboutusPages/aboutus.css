@@ -15,8 +15,22 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    overflow: hidden;
     /* animation: zoom-out 4s linear infinite; */
 }
+
+.aboutus-img::after {
+    content: "";
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
 
 @keyframes zoom-out {
     100% {
@@ -29,7 +43,7 @@
     position: absolute;
     top: 250px;
     left: 150px;
-    color: white;
+    color: #ffffff;
     font-size: 25px;
     font-weight: 550;
     font-family: Optima;

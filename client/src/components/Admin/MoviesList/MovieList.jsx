@@ -29,7 +29,7 @@ const MovieList = props => {
     return(
         <div className="mt-5">
             <h2 className="text-center mb-3">Movies List</h2>
-            <table className="table">
+            <table className="table table-dark">
                 <thead className="text-center">
                     <tr>
                         <th>Movie</th>
@@ -40,10 +40,10 @@ const MovieList = props => {
                     {
                         movies.map((movie, index) => {
                             return  <tr key={index}>
-                                        <td style={{ color: "#9349f5" }}>{movie.title}</td>
+                                        <td>{movie.title}</td>
                                         <td>
-                                            <button className="btn btn-primary" onClick={ () => navigate("/admin/movie/" + movie._id + "/edit") }>Edit</button>
-                                            <button className="btn btn-danger ms-3" onClick={ () => removeFromDom(movie._id) }>Delete</button>
+                                            <button className="btn" onClick={ () => navigate("/admin/movie/" + movie._id + "/edit") }>Edit</button>
+                                            <button className="btn ms-3" onClick={ () => removeFromDom(movie._id) }>Delete</button>
                                         </td>
                                     </tr>
                         })
