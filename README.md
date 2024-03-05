@@ -39,6 +39,18 @@ platform's offerings through the dedicated dashboard.
 
 ## Some Of The Pages On The Website:
 
-1. **Home Page**:
+### Home Page:
 ![home](https://github.com/AmrGharaba/Movie_Tracker/assets/146379471/914ca6ae-0e60-4e59-a95d-c838aa2206ee)
+
+### Discover Page:
+![movies](https://github.com/AmrGharaba/Movie_Tracker/assets/146379471/404b598a-39d9-468c-bbf8-a1f748c6fbbd)
+
+### Login Page:
+![login](https://github.com/AmrGharaba/Movie_Tracker/assets/146379471/535724a9-0311-4a3a-be21-6f6b00c84f0e)
+
+### Watch List Page:
+![watchedlist](https://github.com/AmrGharaba/Movie_Tracker/assets/146379471/f5ca5b74-a4c1-42aa-8955-b6c29f171dab)
+
+### Movie Detail Page:
+![moviedetail](https://github.com/AmrGharaba/Movie_Tracker/assets/146379471/91a8ccf6-85be-4ce8-9fda-a4a804a63ad8)
    
