@@ -28,16 +28,12 @@ function App() {
         <Route path='/login' element={<LoginForm />} />
         <Route path='/home/*' element={<Main />} />
 
-        <Route
-          path='/'
-          element={
-            userId !== null
-              ? (admin !== null
-                ? <Route path='/admin/*' element={<AdminDashboard />} />
-                : <Navigate to='/home' />)
-              : <Navigate to='/home' />
-          }
-        />
+        {
+          userId !== null && admin !== null
+          ? <Route path='/admin/*' element={<AdminDashboard />} />
+          : <Route path='/goto' element={ <Navigate to='/home' /> } />
+        }
+
 
         <Route path='/detail' element={<MovieDetail/>} />
 
