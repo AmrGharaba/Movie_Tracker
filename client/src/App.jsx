@@ -11,6 +11,7 @@ import AboutUs from './components/AboutusPages/AboutUs';
 import MoviesCarousel from './components/Movie/MoviesCarousel';
 import AdminDashboard from "./views/adminDashboard";
 import MovieDetail from './components/MovieDetail/MovieDetail';
+import MainForms from './components/RegisterPages/MainForms';
 
 function App() {
   const userId = localStorage.getItem("userid");
@@ -22,10 +23,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<RegisterForm />} />
+        <Route path='/' element={<MainForms />} />
         {/* <Route element={<MoviesCarousel />} path='/home' /> */}
         <Route path='/aboutus' element={<AboutUs />} />
-        <Route path='/login' element={<LoginForm />} />
+        <Route path='/login' element={<MainForms />} />
         <Route path='/home/*' element={<Main />} />
 
         <Route path='/detail/:movie' element={<MovieDetail />} />
