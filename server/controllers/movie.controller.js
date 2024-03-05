@@ -76,7 +76,57 @@ module.exports.removeFromWatchList = async (req, res) => {
     }
 };
 
+//////////////////////////////////////////////////////////
 
+module.exports.addLike = async (req, res) => {
+    try {
+        const userId = req.body.userId;
+        const movieId = req.params.movieId;
+
+        // Check if the movie exists
+        const movie = await Movie.findById(movieId);
+        if (!movie) {
+            return res.status(404).json({ message: "Movie not found" });
+        }
+
+        // Check if the user is already in the likeList
+        if (!movie.usersLiked.includes(userId)) {
+            movie.usersLiked.push(userId);
+            await movie.save(); // Ensure the save operation is awaited
+            return res.status(200).json({ message: "User added to Liked List" });
+        } else {
+            return res.status(200).json({ message: "User already in Liked List" });
+        }
+    } catch (error) {
+        console.error('Error adding to Liked List:', error); // Log the error for debugging
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+module.exports.removeLike = async (req, res) => {
+    try {
+        const { userId } = req.body;
+        const { movieId } = req.params;
+        const movie = await Movie.findById(movieId);
+
+        if (!movie) {
+            return res.status(404).json({ message: "Movie not found" });
+        }
+
+        const index = movie.usersLiked.indexOf(userId);
+        if (index > -1) {
+            movie.usersLiked.splice(index, 1);
+            await movie.save();
+            res.status(200).json({ message: "User removed from Liked List" });
+        } else {
+            res.status(200).json({ message: "User not in Liked List" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+/////////////////////////////////////////////////////////////
 
 
 module.exports.updateExistingMovie = (req, res) => {
