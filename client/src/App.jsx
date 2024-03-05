@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import './MovieDetail.css';
+
 import { Route, Routes } from 'react-router-dom';
 import RegisterForm from './components/RegisterPages/RegisterForm';
 import LoginForm from './components/RegisterPages/LoginForm';
@@ -34,7 +34,7 @@ function App() {
         <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/login' element={<LoginForm />} />
         <Route path='/home/*' element={<Main />} />
-        <Route path='/detail' element={<MovieDetail/>} />
+        <Route path='/detail/:movie' element={<MovieDetail />} />
       </Routes>
     </>
   );

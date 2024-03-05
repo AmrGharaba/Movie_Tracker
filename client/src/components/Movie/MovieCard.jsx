@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, CardMedia, Box, Typography, IconButton } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 const MovieCard = ({ movie }) => {
@@ -12,7 +13,10 @@ const MovieCard = ({ movie }) => {
 
 
 
-    const handleAddToWatchlist = () => {
+    const handleAddToWatchlist = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
         if (isWatchlisted) {
             axios.patch(`http://localhost:8000/api/movies/${movie._id}/removeFromWatchList`, { userId })
                 .then(response => {
@@ -22,10 +26,7 @@ const MovieCard = ({ movie }) => {
                 .catch(error => {
                     console.error('There was an error!', error);
                 });
-        }
-        else {
-
-
+        } else {
             axios.patch(`http://localhost:8000/api/movies/${movieId}/watchList`, { userId })
                 .then(response => {
                     console.log(response)
@@ -35,76 +36,80 @@ const MovieCard = ({ movie }) => {
                     console.error('There was an error!', error);
                 });
         }
-    }
+    };
 
     return (
-        <Card
-            sx={{
-                width: 325,
-                backgroundColor: '#424242',
-                color: '#fff',
-                borderRadius: "0",
-                boxShadow: "none",
-                position: 'relative',
-                height: '480px',
-                overflow: 'hidden',
-            }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
-            <CardMedia
-                component="img"
+
+        <Link to={`/home/${movie._id}`}>
+            <Card
                 sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    transition: 'opacity 0.3s',
-                    opacity: isHovered ? 0.9 : 1,
+                    width: 325,
+                    backgroundColor: '#424242',
+                    color: '#fff',
+                    borderRadius: "0",
+                    boxShadow: "none",
+                    position: 'relative',
+                    height: '480px',
+                    overflow: 'hidden',
                 }}
-                image={movie.poster}
-                alt={movie.title}
-            />
-            <Box
-                sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'flex-end',
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                    transition: 'background-color 0.3s',
-                    backgroundColor: isHovered ? 'rgba(0,0,0,0.7)' : 'rgba(0,0,0,0)',
-                    padding: '16',
-                    opacity: isHovered ? 1 : 0,
-                    overflow: "hidden"
-                }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
             >
-                {isHovered && (
-                    <IconButton
-                        onClick={handleAddToWatchlist}
-                        sx={{
-                            position: 'absolute',
-                            top: 8,
-                            right: 8,
-                            color: isWatchlisted ? 'red' : '#fff',
-                        }}
-                    >
-                        <AddCircleOutlineIcon />
-                    </IconButton>
-                )}
-                <Typography gutterBottom variant="h6" component="div" sx={{ fontWeight: 'bold', padding: "10px" }}>
-                    {movie.title}
-                </Typography>
-                <Typography variant="body2" sx={{ overflow: "hidden", textOverflow: 'ellipsis', height: "180px", paddingLeft: "10px", paddingRight: "10px", paddingBottom: "10px" }}>
-                    {movie.description}
-                </Typography>
-            </Box>
-        </Card>
+                <CardMedia
+                    component="img"
+                    sx={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        transition: 'opacity 0.3s',
+                        opacity: isHovered ? 0.9 : 1,
+                    }}
+                    image={movie.poster}
+                    alt={movie.title}
+                />
+
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-end',
+                        backgroundColor: 'rgba(0, 0, 0, 0)',
+                        transition: 'background-color 0.3s',
+                        backgroundColor: isHovered ? 'rgba(0,0,0,0.7)' : 'rgba(0,0,0,0)',
+                        padding: '16',
+                        opacity: isHovered ? 1 : 0,
+                        overflow: "hidden"
+                    }}
+                >
+                    {isHovered && (
+                        <IconButton
+                            onClick={(event) => handleAddToWatchlist(event)}
+                            sx={{
+                                position: 'absolute',
+                                top: 8,
+                                right: 8,
+                                color: isWatchlisted ? 'red' : '#fff',
+                            }}
+                        >
+                            <AddCircleOutlineIcon />
+                        </IconButton>
+                    )}
+                    <Typography gutterBottom variant="h6" component="div" sx={{ fontWeight: 'bold', padding: "10px" }}>
+                        {movie.title}
+                    </Typography>
+                    <Typography variant="body2" sx={{ overflow: "hidden", textOverflow: 'ellipsis', height: "180px", paddingLeft: "10px", paddingRight: "10px", paddingBottom: "10px" }}>
+                        {movie.description}
+                    </Typography>
+                </Box>
+            </Card>
+        </Link >
     );
 };
 
