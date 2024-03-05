@@ -6,6 +6,12 @@ module.exports = app => {
     app.post('/api/movies', MovieController.createNewMovie);
     app.patch('/api/movies/:movieId/watchList', MovieController.addToWatchList)
     app.patch('/api/movies/:movieId/removeFromWatchList', MovieController.removeFromWatchList)
+
+    app.patch('/api/movies/:movieId/addLike', MovieController.addLike)
+    app.patch('/api/movies/:movieId/removeLike', MovieController.removeLike)
+
+
+
     app.patch('/api/movies/:id', MovieController.updateExistingMovie);
     app.delete('/api/movies/:id', MovieController.deleteAnExistingMovie);
 
