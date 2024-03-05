@@ -12,11 +12,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AllMovies from '../components/Movie/AllMovies';
 import MainWatchList from './MainWatchList';
-
-
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MovieDetail from '../components/MovieDetail/MovieDetail';
+
 
 function Main() {
     const [movies, setMovies] = useState([]);
@@ -75,6 +74,7 @@ function Main() {
                 } />
                 <Route path="/watchlist" element={<MainWatchList />} />
                 <Route element={<ContactUs />} path='/contactus' />
+                <Route element={<MovieDetail />} path='/:id' />
 
 
             </Routes>
