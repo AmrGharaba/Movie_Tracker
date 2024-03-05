@@ -39,6 +39,6 @@ platform's offerings through the dedicated dashboard.
 
 ## Some Of The Pages On The Website:
 
-### Home Page:
+1. **Home Page**:
 ![home](https://github.com/AmrGharaba/Movie_Tracker/assets/146379471/914ca6ae-0e60-4e59-a95d-c838aa2206ee)
    
