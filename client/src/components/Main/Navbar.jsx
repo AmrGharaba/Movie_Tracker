@@ -9,6 +9,10 @@ const Navbar = () => {
     const userId = localStorage.getItem("userid");
     const navigate = useNavigate();
 
+    const handleAdminClick = (event) => {
+        event.preventDefault();
+        navigate('/admin/movies')
+    }
 
     const handleAuthAction = () => {
         if (userId) {
@@ -47,7 +51,7 @@ const Navbar = () => {
                     <Button color="inherit" component={Link} to="/home/allMovies">Discover</Button>
                     <Button color="inherit" component={Link} to={userId && "/home/watchlist"}>Watchlist</Button>
                     {
-                        admin ? <Button color="inherit" component={Link} to="/admin/movies">Admin Dashboard</Button> : ""
+                        admin ? <Button color="inherit" component={Link} onClick={(event) => handleAdminClick(event)}>Admin Dashboard</Button> : ""
                     }
 
                 </Box>

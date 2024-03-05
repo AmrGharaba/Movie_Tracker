@@ -21,17 +21,17 @@ function App() {
       <Routes>
         <Route path='/' element={<MainForms />} />
         {/* <Route element={<MoviesCarousel />} path='/home' /> */}
-  
+
         <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/login' element={<MainForms />} />
         <Route path='/home/*' element={<Main />} />
         <Route path='/detail/:movie' element={<MovieDetail />} />
-        {
-          userId !== null && admin !== null
-          ? <Route path='/admin/*' element={<AdminDashboard />} />
-          : <Route path='/goto' element={ <Navigate to='/home' /> } />
-        }
-        <Route path='/detail' element={<MovieDetail/>} />
+        {/* {
+          userId !== null && admin !== null */}
+            <Route path='/admin/*' element={<AdminDashboard />} />
+            {/* : <Route path='/goto' element={<Navigate to='/home' />} /> */}
+        {/* } */}
+        <Route path='/detail' element={<MovieDetail />} />
       </Routes>
     </>
   );

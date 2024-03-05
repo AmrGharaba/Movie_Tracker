@@ -48,7 +48,7 @@ const MovieCard = ({ movie }) => {
             to={!mouseMoved && `/home/${movie._id}`}>
             <Card
                 sx={{
-                    width: 305,
+                    width: 325,
                     backgroundColor: '#424242',
                     color: '#fff',
                     borderRadius: "0",
@@ -56,6 +56,8 @@ const MovieCard = ({ movie }) => {
                     position: 'relative',
                     height: '480px',
                     overflow: 'hidden',
+                    margin: "0",
+                    padding: "0"
                 }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
